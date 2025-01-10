@@ -38,7 +38,7 @@ class Stream
     /**
      * @var resource|null
      */
-    protected      $handle = null;
+    protected $handle = null;
     protected bool $posix;
 
     /**
