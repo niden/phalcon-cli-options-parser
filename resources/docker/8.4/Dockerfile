@@ -25,6 +25,7 @@ RUN set -eux; \
         wget \
         zip; \
     pecl install xdebug; \
+    docker-php-ext-install zip; \
     docker-php-ext-enable xdebug; \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
