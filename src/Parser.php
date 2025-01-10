@@ -31,7 +31,7 @@ class Parser
      *
      * @return mixed
      */
-    public function get(int|string $key, mixed $default = null): mixed
+    public function get(int | string $key, mixed $default = null): mixed
     {
         if (!$this->has($key)) {
             return $default;
@@ -66,12 +66,12 @@ class Parser
             'yes',
             'true',
             '1',
-            'on' => true,
+            'on'    => true,
             'n',
             'no',
             'false',
             '0',
-            'off' => false,
+            'off'   => false,
             default => $default,
         };
     }
@@ -92,7 +92,7 @@ class Parser
      *
      * @return bool
      */
-    public function has(int|string $key): bool
+    public function has(int | string $key): bool
     {
         return isset($this->parsedCommands[$key]);
     }
