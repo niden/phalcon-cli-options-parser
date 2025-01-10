@@ -3,25 +3,33 @@
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="./phpunit.php"
          cacheDirectory="tests/_output/.phpunit.result.cache"
-         colors="true">
+         colors="true"
+>
+
   <coverage>
-    <include>
-      <directory suffix=".php">src</directory>
-    </include>
     <report>
       <clover outputFile="tests/_output/coverage/coverage.xml"/>
       <text outputFile="php://stdout"/>
     </report>
   </coverage>
+
   <testsuites>
     <testsuite name="CLI Option Parser Test Suite">
       <directory>tests</directory>
     </testsuite>
   </testsuites>
+
   <php>
     <ini name="date.timezone" value="UTC"/>
     <ini name="display_errors" value="on"/>
     <ini name="display_startup_errors" value="on"/>
   </php>
   <logging/>
+
+  <source>
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+  </source>
+
 </phpunit>
