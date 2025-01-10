@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace Phalcon\Cop\Stdio;
 
 /**
- * Converts <<markup>> to VT100 display control codes for POSIX, or strips
- * the <<markup>> entirely for non-POSIX.
+ * Converts <tag> to VT100 display control codes for POSIX, or strips
+ * the <tag> entirely for non-POSIX.
  */
 class Formatter
 {
