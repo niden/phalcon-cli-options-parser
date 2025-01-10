@@ -6,7 +6,7 @@ services:
   cli-options-parser-8.0:
     container_name: cli-options-parser-8.0
     hostname: cli-options-parser-80
-    build: docker/8.0
+    build: resources/docker/8.0
     working_dir: /srv
     volumes:
       - .:/srv
@@ -14,7 +14,7 @@ services:
   cli-options-parser-8.1:
     container_name: cli-options-parser-8.1
     hostname: cli-options-parser-81
-    build: docker/8.1
+    build: resources/docker/8.1
     working_dir: /srv
     volumes:
       - .:/srv
@@ -22,7 +22,23 @@ services:
   cli-options-parser-8.2:
     container_name: cli-options-parser-8.2
     hostname: cli-options-parser-82
-    build: docker/8.2
+    build: resources/docker/8.2
+    working_dir: /srv
+    volumes:
+      - .:/srv
+
+  cli-options-parser-8.3:
+    container_name: cli-options-parser-8.3
+    hostname: cli-options-parser-83
+    build: resources/docker/8.3
+    working_dir: /srv
+    volumes:
+      - .:/srv
+
+  cli-options-parser-8.4:
+    container_name: cli-options-parser-8.4
+    hostname: cli-options-parser-84
+    build: resources/docker/8.4
     working_dir: /srv
     volumes:
       - .:/srv

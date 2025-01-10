@@ -2,9 +2,14 @@
 
 [![PDS Skeleton](https://img.shields.io/badge/pds-skeleton-blue.svg?style=flat-square)](https://github.com/php-pds/skeleton)
 ![GitHub License](https://img.shields.io/github/license/phalcon/cli-options-parser)
-![Codacy Grade](https://img.shields.io/codacy/grade/4064c9bc35634505852e41aedaa9386c)
-![Codacy Code Coverage](https://img.shields.io/codacy/coverage/4064c9bc35634505852e41aedaa9386c)
 ![Downloads](https://img.shields.io/packagist/dm/phalcon/cli-options-parser)
+[![Phalcon CI](https://github.com/phalcon/phalcon/actions/workflows/continuous-integration.yml/badge.svg?branch=v6.0.x)](https://github.com/phalcon/phalcon/actions/workflows/continuous-integration.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=phalcon_phalcon&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=phalcon_phalcon)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=phalcon_phalcon&metric=coverage)](https://sonarcloud.io/summary/new_code?id=phalcon_phalcon)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=phalcon_phalcon&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=phalcon_phalcon)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=phalcon_phalcon&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=phalcon_phalcon)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=phalcon_phalcon&metric=bugs)](https://sonarcloud.io/summary/new_code?id=phalcon_phalcon)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=phalcon_phalcon&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=phalcon_phalcon)
 
 Command line arguments/options parser.
 

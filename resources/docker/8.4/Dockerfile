@@ -1,5 +1,5 @@
-FROM composer:2 as composer
-FROM php:8.0-fpm
+FROM composer:2.8.4 AS composer
+FROM php:8.4-fpm
 
 COPY ./extra.ini /usr/local/etc/php/conf.d/
 
@@ -8,15 +8,14 @@ ENV MY_USER="phalcon" \
 	MY_GROUP="phalcon" \
 	MY_UID="1000" \
 	MY_GID="1000" \
-	PHP_VERSION="8.0"
+	PHP_VERSION="8.4"
 
 # User and Group
 RUN set -eux && \
 	groupadd -g ${MY_GID} -r ${MY_GROUP} && \
-	useradd -u ${MY_UID} -m -s /bin/bash -g ${MY_GROUP} ${MY_USER}
-
+	useradd -u ${MY_UID} -m -s /bin/bash -g ${MY_GROUP} ${MY_USER} \
 # Update
-RUN apt update -y && \
+    apt update -y && \
     apt install -y \
         apt-utils \
         gettext \
@@ -25,14 +24,13 @@ RUN apt update -y && \
         nano \
         sudo \
         wget \
-        zip
-
+        zip && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* \
 # PECL Packages
-RUN pecl install \
-      xdebug
-
+    pecl install \
+      xdebug \
 # Install PHP extensions
-RUN docker-php-ext-enable \
+    docker-php-ext-enable \
         xdebug
 
 # Composer
