@@ -15,7 +15,7 @@
         "getopt"
     ],
     "homepage": "https://phalconphp.com",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
     "authors": [
         {
             "name": "Phalcon Team",
@@ -73,22 +73,22 @@
     },
     "scripts": {
         "analyze": [
-            "phpstan analyse -l max ./src"
+            "./vendor/bin/phpstan analyze -l max ./src"
         ],
         "cs": [
-            "phpcs --standard=psr12 --extensions=php --ignore=vendor ./src"
+            "./vendor/bin/phpcs --standard=psr12 --extensions=php --ignore=vendor ./src"
         ],
         "cs-fix": [
-            "phpcbf --standard=psr12 --extensions=php --ignore=vendor ./src"
+            "./vendor/bin/phpcbf --standard=psr12 --extensions=php --ignore=vendor ./src"
         ],
         "test": [
-            "phpunit --configuration phpunit.xml.dist"
+            "./vendor/bin/phpunit --configuration phpunit.xml.dist"
         ],
         "test-coverage": [
-            "phpunit --configuration phpunit.xml.dist --coverage-clover ./build/coverage.xml"
+            "./vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-clover ./tests/_output/coverage.xml"
         ],
         "test-coverage-html": [
-            "phpunit --configuration phpunit.xml.dist --coverage-html ./build/coverage"
+            "./vendor/bin/phpunit --configuration phpunit.xml.dist --coverage-html ./tests/_output/coverage"
         ]
     }
 }
