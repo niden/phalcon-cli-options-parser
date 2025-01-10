@@ -11,33 +11,13 @@
 
 declare(strict_types=1);
 
-namespace Phalcon\Cop\Tests\Unit;
+namespace Phalcon\Cop\Tests\Unit\Stdio;
 
 use Phalcon\Cop\Stdio\Formatter;
 use PHPUnit\Framework\TestCase;
 
-class FormatterTest extends TestCase
+final class FormatterTest extends TestCase
 {
-    /**
-     * @dataProvider getExamples
-     *
-     * @param string $input
-     * @param string $expected
-     * @param bool   $posix
-     *
-     * @return void
-     */
-    public function testFormat(
-        string $input,
-        string $expected,
-        bool $posix
-    ): void {
-        $formatter = new Formatter();
-
-        $actual = $formatter->format($input, $posix);
-        $this->assertSame($expected, $actual);
-    }
-
     public static function getExamples(): array
     {
         $esc = chr(27);
@@ -159,5 +139,25 @@ class FormatterTest extends TestCase
                 false,
             ],
         ];
+    }
+
+    /**
+     * @dataProvider getExamples
+     *
+     * @param string $input
+     * @param string $expected
+     * @param bool   $posix
+     *
+     * @return void
+     */
+    public function testFormat(
+        string $input,
+        string $expected,
+        bool $posix
+    ): void {
+        $formatter = new Formatter();
+
+        $actual = $formatter->format($input, $posix);
+        $this->assertSame($expected, $actual);
     }
 }
