@@ -11,7 +11,7 @@
 
 return [
     [//test: -az value1 -abc value2
-     'params' => [
+     [
          'command' => [
              '/usr/bin/phalcon',
              '-az',
@@ -20,7 +20,7 @@ return [
              'value2',
          ],
      ],
-     'expected' => [
+     [
          'a' => 'value2',
          'z' => 'value1',
          'b' => 'value2',
@@ -28,7 +28,7 @@ return [
      ],
     ],
     [//test: -a value1 -abc value2
-     'params' => [
+     [
          'command' => [
              '/usr/bin/phalcon',
              '-a',
@@ -37,14 +37,14 @@ return [
              'value2',
          ],
      ],
-     'expected' => [
+     [
          'a' => 'value2',
          'b' => 'value2',
          'c' => 'value2',
      ],
     ],
     [//test: --az value1 --abc value2
-     'params' => [
+     [
          'command' => [
              '/usr/bin/phalcon',
              '--az',
@@ -53,13 +53,13 @@ return [
              'value2',
          ],
      ],
-     'expected' => [
+     [
          'az'  => 'value1',
          'abc' => 'value2',
      ],
     ],
     [//test: --foo --bar=baz --spam eggs
-     'params' => [
+     [
          'command' => [
              '/usr/bin/phalcon',
              '--foo',
@@ -68,28 +68,28 @@ return [
              'eggs',
          ],
      ],
-     'expected' => [
+     [
          'foo'  => true,
          'bar'  => 'baz',
          'spam' => 'eggs',
      ],
     ],
     [//test: -abc foo
-     'params' => [
+     [
          'command' => [
              '/usr/bin/phalcon',
              '-abc',
              'foo',
          ],
      ],
-     'expected' => [
+     [
          'a' => 'foo',
          'b' => 'foo',
          'c' => 'foo',
      ],
     ],
     [//test: arg1 arg2 arg3
-     'params' => [
+     [
          'command' => [
              '/usr/bin/phalcon',
              'arg1',
@@ -97,14 +97,14 @@ return [
              'arg3',
          ],
      ],
-     'expected' => [
+     [
          0 => 'arg1',
          1 => 'arg2',
          2 => 'arg3',
      ],
     ],
     [//test: plain-arg --foo --bar=baz --funny="spam=eggs" --also-funny=spam=eggs 'plain arg 2' -abc -k=value "plain arg 3" --s="original" --s='overwrite' --s
-     'params' => [
+     [
          'command' => [
              '/usr/bin/phalcon',
              'plain-arg',
@@ -121,7 +121,7 @@ return [
              '--s',
          ],
      ],
-     'expected' => [
+     [
          0            => 'plain-arg',
          'foo'        => true,
          'bar'        => 'baz',

@@ -233,7 +233,7 @@ class ParserTest extends TestCase
     /**
      * @return array
      */
-    public function booleanProvider(): array
+    public static function booleanProvider(): array
     {
         return include __DIR__ . '/fixtures/boolean_parameters.php';
     }
@@ -241,7 +241,7 @@ class ParserTest extends TestCase
     /**
      * @return mixed
      */
-    public function parseProvider(): array
+    public static function parseProvider(): array
     {
         return include __DIR__ . '/fixtures/parse_parameters.php';
     }

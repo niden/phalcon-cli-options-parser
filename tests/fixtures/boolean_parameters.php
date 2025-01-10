@@ -11,7 +11,7 @@
 
 return [
     [
-        'params' => [
+        [
             'key'     => 'key1',
             'default' => false,
             'argv'    => [
@@ -20,10 +20,10 @@ return [
                 '1',
             ],
         ],
-        'expected' => true,
+        true,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key2',
             'default' => true,
             'argv'    => [
@@ -32,10 +32,10 @@ return [
                 '0',
             ],
         ],
-        'expected' => false,
+        false,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key3',
             'default' => false,
             'argv'    => [
@@ -44,10 +44,10 @@ return [
                 'y',
             ],
         ],
-        'expected' => true,
+        true,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key4',
             'default' => true,
             'argv'    => [
@@ -56,10 +56,10 @@ return [
                 'n',
             ],
         ],
-        'expected' => false,
+        false,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key5',
             'default' => false,
             'argv'    => [
@@ -68,10 +68,10 @@ return [
                 'yes',
             ],
         ],
-        'expected' => true,
+        true,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key6',
             'default' => true,
             'argv'    => [
@@ -80,10 +80,10 @@ return [
                 'no',
             ],
         ],
-        'expected' => false,
+        false,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key7',
             'default' => false,
             'argv'    => [
@@ -92,10 +92,10 @@ return [
                 'true',
             ],
         ],
-        'expected' => true,
+        true,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key8',
             'default' => true,
             'argv'    => [
@@ -104,10 +104,10 @@ return [
                 'false',
             ],
         ],
-        'expected' => false,
+        false,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key9',
             'default' => false,
             'argv'    => [
@@ -116,10 +116,10 @@ return [
                 'on',
             ],
         ],
-        'expected' => true,
+        true,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key10',
             'default' => true,
             'argv'    => [
@@ -128,10 +128,10 @@ return [
                 'off',
             ],
         ],
-        'expected' => false,
+        false,
     ],
     [
-        'params' => [
+        [
             'key'     => 'key11',
             'default' => false,
             'argv'    => [
@@ -139,10 +139,10 @@ return [
                 '--key11',
             ],
         ],
-        'expected' => true,
+        true,
     ],
     [//test default param
-     'params' => [
+     [
          'key'     => 'key13',
          'default' => false,
          'argv'    => [
@@ -150,6 +150,6 @@ return [
              '--key12',
          ],
      ],
-     'expected' => false,
+     false,
     ],
 ];
