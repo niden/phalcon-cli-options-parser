@@ -26,7 +26,7 @@ class CopFactory
         string $stdin = 'php://stdin',
         string $stdout = 'php://stdout',
         string $stderr = 'php://stderr'
-    ) {
+    ): Stdio {
         return new Stdio(
             new Stream($stdin, 'r'),
             new Stream($stdout, 'w+'),

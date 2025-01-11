@@ -17,8 +17,6 @@ use Phalcon\Cop\Exception\InvalidStreamException;
 use Phalcon\Cop\Stdio\Stream;
 use PHPUnit\Framework\TestCase;
 
-use const STDIN;
-
 final class StreamTest extends TestCase
 {
     public function testNameMode()

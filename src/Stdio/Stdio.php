@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Phalcon\Cop\Stdio;
 
+use Phalcon\Cop\Exception\InvalidStreamException;
+
 use function rtrim;
 
 use const PHP_EOL;
@@ -77,10 +79,14 @@ class Stdio
      * @param bool $eol
      *
      * @return string
+     * @throws InvalidStreamException
      */
     public function in(bool $eol = false): string
     {
-        return rtrim($this->stdin->fgets(), ($eol ? PHP_EOL : ''));
+        $input = $this->stdin->fgets();
+        $input = false === $input ? '' : $input;
+
+        return rtrim($input, ($eol ? PHP_EOL : ''));
     }
 
     /**
@@ -107,9 +113,12 @@ class Stdio
      *
      * @return void
      */
-    protected function output(Stream $stream, string $input = '', bool $eol = false): void
-    {
-        $input = $this->formatter->format($input, $stream->isPosix());
-        $stream->fwrite($input . ($eol ? PHP_EOL : ''));
+    protected function output(
+        Stream $stream,
+        string $input = '',
+        bool $eol = false
+    ): void {
+        $output = $this->formatter->format($input, $stream->isPosix());
+        $stream->fwrite($output . ($eol ? PHP_EOL : ''));
     }
 }

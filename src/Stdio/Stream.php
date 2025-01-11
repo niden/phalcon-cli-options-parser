@@ -23,6 +23,7 @@ use function fread;
 use function function_exists;
 use function fwrite;
 use function is_bool;
+use function is_resource;
 use function posix_isatty;
 use function rewind;
 use function str_starts_with;
@@ -68,7 +69,6 @@ class Stream
     {
         if ($this->handle) {
             fclose($this->handle);
-            $this->handle = null;
         }
     }
 
@@ -76,26 +76,30 @@ class Stream
      * Reads a line from the handle
      *
      * @return false|string
-     * @throws InvalidStreamException
      */
     public function fgets(): false | string
     {
-        $this->checkStream();
-        return fgets($this->handle);
+        if (is_resource($this->handle)) {
+            return fgets($this->handle);
+        }
+
+        return false;
     }
 
     /**
      * Reads from the resource (8192 bytes at a time)
      *
-     * @param int $length
+     * @param int<1, max> $length
      *
-     * @return string|bool
-     * @throws InvalidStreamException
+     * @return string|false
      */
-    public function fread(int $length = 8192): string | bool
+    public function fread(int $length = 8192): string | false
     {
-        $this->checkStream();
-        return fread($this->handle, $length);
+        if (is_resource($this->handle)) {
+            return fread($this->handle, $length);
+        }
+
+        return false;
     }
 
     /**
@@ -104,12 +108,14 @@ class Stream
      * @param string $input
      *
      * @return false|int
-     * @throws InvalidStreamException
      */
     public function fwrite(string $input): false | int
     {
-        $this->checkStream();
-        return fwrite($this->handle, $input);
+        if (is_resource($this->handle)) {
+            return fwrite($this->handle, $input);
+        }
+
+        return false;
     }
 
     /**
@@ -146,12 +152,14 @@ class Stream
      * Rewinds the pointer
      *
      * @return bool
-     * @throws InvalidStreamException
      */
     public function rewind(): bool
     {
-        $this->checkStream();
-        return rewind($this->handle);
+        if (is_resource($this->handle)) {
+            return rewind($this->handle);
+        }
+
+        return false;
     }
 
     /**
@@ -193,7 +201,10 @@ class Stream
         /**
          * Check for Windows. If yes, it is not posix
          */
-        if (str_starts_with(strtolower($this->os), 'win')) {
+        if (
+            null !== $this->os &&
+            str_starts_with(strtolower($this->os), 'win')
+        ) {
             $this->posix = false;
             return;
         }
@@ -201,7 +212,10 @@ class Stream
         /**
          * Try to auto detect using `posix_isatty()` if available
          */
-        if (function_exists('posix_isatty')) {
+        if (
+            function_exists('posix_isatty') &&
+            is_resource($this->handle)
+        ) {
             $level       = error_reporting(0);
             $this->posix = posix_isatty($this->handle);
             error_reporting($level);
